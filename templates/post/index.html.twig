@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+{% for post in posts %}
+	<h1><a href="{{ path('post_show_slug', {slug: post.slug })}}">{{ post.title }}</a></h1>
+
+{% endfor %}
+{% endblock %}
