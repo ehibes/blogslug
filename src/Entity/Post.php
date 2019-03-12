@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  */
 class Post
@@ -89,5 +91,10 @@ class Post
         $this->created_at = $created_at;
 
         return $this;
+    }
+
+    public function countWords(): int 
+    {
+        return str_word_count($this->getContent());
     }
 }
